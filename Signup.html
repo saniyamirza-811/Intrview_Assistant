@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sign Up</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Inter',sans-serif;
+}
+
+body{
+  background:#05030d;
+  min-height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  padding:50px;
+  color:white;
+  position:relative;
+  overflow:hidden;
+}
+
+/* Glow */
+
+body::before,
+body::after{
+  content:'';
+  position:absolute;
+  border-radius:50%;
+  filter:blur(180px);
+}
+
+body::before{
+  width:320px;
+  height:320px;
+  background:#7c3aed;
+  opacity:.12;
+  top:-80px;
+  left:-80px;
+}
+
+body::after{
+  width:320px;
+  height:320px;
+  background:#9333ea;
+  opacity:.10;
+  right:-80px;
+  bottom:-80px;
+}
+
+/* Main */
+
+.container{
+  width:100%;
+  max-width:1150px;
+  min-height:620px;
+
+  display:grid;
+  grid-template-columns:1fr 420px;
+
+  background:#090613;
+
+  border:1px solid rgba(255,255,255,.05);
+
+  border-radius:24px;
+
+  overflow:hidden;
+
+  position:relative;
+  z-index:2;
+
+  box-shadow:0 20px 60px rgba(0,0,0,.35);
+}
+
+/* LEFT */
+
+.left-panel{
+  padding:55px;
+
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+
+  background:
+  radial-gradient(
+    circle at center,
+    #140828 0%,
+    #090613 70%
+  );
+}
+
+.illustration{
+  height:260px;
+
+  border-radius:20px;
+
+  display:flex;
+  justify-content:center;
+  align-items:center;
+
+  overflow:hidden;
+
+  margin-bottom:35px;
+
+  background:
+  linear-gradient(
+    145deg,
+    #130724,
+    #1b0f36
+  );
+}
+
+.illustration img{
+  height:100%;
+  object-fit:contain;
+}
+
+.headline{
+  font-size:34px;
+  font-weight:800;
+  line-height:1.2;
+  max-width:450px;
+  margin-bottom:16px;
+}
+
+.headline span{
+  color:#a855f7;
+}
+
+.desc{
+  color:#94a3b8;
+  font-size:15px;
+  line-height:1.7;
+  max-width:430px;
+  margin-bottom:30px;
+}
+
+.features{
+  display:flex;
+  gap:25px;
+}
+
+.feature h3{
+  font-size:14px;
+  margin-bottom:4px;
+}
+
+.feature p{
+  font-size:12px;
+  color:#94a3b8;
+}
+
+/* RIGHT */
+
+.right-panel{
+  padding:45px 35px 70px 35px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+
+  border-left:1px solid rgba(255,255,255,.05);
+}
+
+.logo{
+  font-size:24px;
+  font-weight:800;
+  margin-bottom:24px;
+}
+
+.logo span{
+  color:#a855f7;
+}
+
+.card{
+  border:1px solid rgba(168,85,247,.15);
+
+  border-radius:18px;
+  margin-bottom:30px;
+
+  padding:24px;
+}
+
+.card h1{
+  font-size:26px;
+  margin-bottom:8px;
+}
+
+.subtitle{
+  color:#94a3b8;
+  font-size:13px;
+  margin-bottom:22px;
+}
+
+.field{
+  margin-bottom:18px;
+}
+
+.field label{
+  display:block;
+  margin-bottom:8px;
+  font-size:13px;
+}
+
+.field input{
+  width:100%;
+
+  padding:13px 15px;
+
+  border-radius:12px;
+
+  border:1px solid rgba(255,255,255,.08);
+
+  background:rgba(255,255,255,.04);
+
+  color:white;
+
+  outline:none;
+
+  font-size:13px;
+}
+
+.field input:focus{
+  border-color:#a855f7;
+}
+
+.signup-btn{
+  width:100%;
+
+  margin-top:6px;
+
+  padding:13px;
+
+  border:none;
+
+  border-radius:12px;
+
+  background:
+  linear-gradient(
+    90deg,
+    #7c3aed,
+    #c026d3
+  );
+
+  color:white;
+
+  font-weight:600;
+
+  cursor:pointer;
+}
+
+.divider{
+  text-align:center;
+  color:#64748b;
+  font-size:12px;
+  margin:18px 0;
+}
+
+.socials{
+  display:flex;
+  gap:10px;
+}
+
+.social-btn{
+  flex:1;
+
+  padding:11px;
+
+  background:transparent;
+
+  border:1px solid rgba(255,255,255,.08);
+
+  border-radius:12px;
+
+  color:white;
+
+  cursor:pointer;
+
+  font-size:12px;
+}
+
+.login-link{
+  text-align:center;
+  margin-top:20px;
+  font-size:13px;
+  color:#94a3b8;
+}
+
+.login-link span{
+  color:#a855f7;
+  font-weight:600;
+  cursor:pointer;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+  <!-- LEFT -->
+
+  <div class="left-panel">
+
+    <div class="illustration">
+      <img src="ChatGPT Image May 14, 2026, 08_20_19 AM.png" alt="">
+    </div>
+
+    <div class="headline">
+      Build Your Career with
+      <span>AI Guidance</span>
+    </div>
+
+    <div class="desc">
+      Prepare smarter with AI-powered interviews, instant feedback, and career insights.
+    </div>
+
+    <div class="features">
+
+      <div class="feature">
+        <h3>Practice</h3>
+        <p>Mock interviews</p>
+      </div>
+
+      <div class="feature">
+        <h3>Feedback</h3>
+        <p>Smart analysis</p>
+      </div>
+
+      <div class="feature">
+        <h3>Growth</h3>
+        <p>Track progress</p>
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- RIGHT -->
+
+  <div class="right-panel">
+
+    <div class="logo">
+      Interview <span>Assistant</span>
+    </div>
+
+    <div class="card">
+
+      <h1>Create Account ✨</h1>
+
+      <p class="subtitle">
+        Start your AI interview journey
+      </p>
+
+      <div class="field">
+        <label>Full Name</label>
+        <input type="text" placeholder="John Doe">
+      </div>
+
+      <div class="field">
+        <label>Email</label>
+        <input type="email" placeholder="you@example.com">
+      </div>
+
+      <div class="field">
+        <label>Password</label>
+        <input type="password" placeholder="Create password">
+      </div>
+
+      <div class="field">
+        <label>Confirm Password</label>
+        <input type="password" placeholder="Confirm password">
+      </div>
+
+      <button class="signup-btn">
+        Create Account →
+      </button>
+
+      <div class="divider">
+        Or continue with
+      </div>
+
+      <div class="socials">
+        <button class="social-btn">Google</button>
+        <button class="social-btn">GitHub</button>
+      </div>
+
+      <div class="login-link">
+        Already have an account?
+        <span>Login</span>
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+
+</body>
+</html>

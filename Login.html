@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Login page</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Inter',sans-serif;
+}
+
+body{
+  background:#05030d;
+  min-height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  color:white;
+  padding:40px;
+  overflow:hidden;
+  position:relative;
+}
+
+/* Background glow */
+
+body::before,
+body::after{
+  content:'';
+  position:absolute;
+  border-radius:50%;
+  filter:blur(180px);
+  z-index:0;
+}
+
+body::before{
+  width:350px;
+  height:350px;
+  background:#7c3aed;
+  opacity:.14;
+  top:-80px;
+  left:-80px;
+}
+
+body::after{
+  width:350px;
+  height:350px;
+  background:#9333ea;
+  opacity:.12;
+  bottom:-80px;
+  right:-80px;
+}
+
+/* Main Layout */
+
+.container{
+  width:100%;
+  max-width:1120px;
+  min-height:640px;
+
+  display:grid;
+  grid-template-columns: 430px 1fr;
+
+  border-radius:24px;
+
+  background:#090613;
+
+  border:1px solid rgba(255,255,255,.05);
+
+  box-shadow:
+  0 20px 60px rgba(0,0,0,.35);
+
+  overflow:hidden;
+
+  position:relative;
+  z-index:2;
+}
+
+/* LEFT SIDE */
+
+.left-panel{
+  padding:32px;
+  border-right:1px solid rgba(255,255,255,.05);
+}
+
+.logo{
+  font-size:26px;
+  font-weight:800;
+  margin-bottom:28px;
+}
+
+.logo span{
+  color:#a855f7;
+}
+
+.card{
+  border:1px solid rgba(168,85,247,.18);
+  border-radius:20px;
+
+  padding:28px;
+}
+
+.card h1{
+  font-size:30px;
+  margin-bottom:8px;
+}
+
+.subtitle{
+  color:#94a3b8;
+  font-size:14px;
+  margin-bottom:28px;
+}
+
+/* Form */
+
+.field{
+  margin-bottom:18px;
+}
+
+.field label{
+  display:block;
+  margin-bottom:8px;
+  font-size:14px;
+  font-weight:500;
+}
+
+.field input{
+  width:100%;
+  padding:14px 16px;
+
+  border:none;
+
+  border-radius:12px;
+
+  background:rgba(255,255,255,.04);
+
+  border:1px solid rgba(255,255,255,.08);
+
+  color:white;
+
+  font-size:14px;
+}
+
+.field input:focus{
+  outline:none;
+  border-color:#a855f7;
+}
+
+/* Helper row */
+
+.row{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+
+  margin-bottom:22px;
+
+  font-size:13px;
+
+  color:#cbd5e1;
+}
+
+.forgot{
+  color:#a855f7;
+  cursor:pointer;
+}
+
+/* Login Button */
+
+.login-btn{
+  width:100%;
+
+  padding:14px;
+
+  border:none;
+
+  border-radius:12px;
+
+  background:linear-gradient(
+  90deg,
+  #7c3aed,
+  #c026d3
+  );
+
+  color:white;
+
+  font-size:15px;
+
+  font-weight:600;
+
+  cursor:pointer;
+
+  margin-bottom:22px;
+}
+
+/* Divider */
+
+.divider{
+  text-align:center;
+  color:#64748b;
+  font-size:13px;
+  margin-bottom:20px;
+}
+
+/* Social */
+
+.socials{
+  display:flex;
+  gap:12px;
+}
+
+.social-btn{
+  flex:1;
+
+  background:transparent;
+
+  border:1px solid rgba(255,255,255,.08);
+
+  color:white;
+
+  padding:12px;
+
+  border-radius:12px;
+
+  cursor:pointer;
+
+  font-size:13px;
+}
+
+.signup{
+  text-align:center;
+
+  margin-top:24px;
+
+  color:#94a3b8;
+
+  font-size:14px;
+}
+
+.signup span{
+  color:#a855f7;
+  cursor:pointer;
+  font-weight:600;
+}
+
+/* RIGHT SIDE */
+
+.right-panel{
+  padding:40px 50px;
+
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+
+  background:
+  radial-gradient(
+  circle at center,
+  #140828 0%,
+  #090613 70%
+  );
+}
+
+.illustration{
+  height:220px;
+
+  border-radius:20px;
+
+  display:flex;
+  justify-content:center;
+  align-items:center;
+
+  font-size:70px;
+
+  margin-bottom:28px;
+
+  background:
+  linear-gradient(
+  145deg,
+  #130724,
+  #1b0f36
+  );
+}
+
+.headline{
+  font-size:34px;
+
+  font-weight:800;
+
+  line-height:1.2;
+
+  max-width:430px;
+
+  margin-bottom:16px;
+}
+
+.headline span{
+  color:#a855f7;
+}
+
+.desc{
+  max-width:430px;
+
+  color:#94a3b8;
+
+  line-height:1.7;
+
+  font-size:15px;
+
+  margin-bottom:28px;
+}
+
+/* Features */
+
+.features{
+  display:flex;
+  gap:30px;
+}
+
+.feature h3{
+  font-size:14px;
+  margin-bottom:4px;
+}
+
+.feature p{
+  color:#94a3b8;
+  font-size:12px;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+  <!-- LEFT -->
+
+  <div class="left-panel">
+
+    <div class="logo">
+      Interview <span>Assistant</span>
+    </div>
+
+    <div class="card">
+
+      <h1>Welcome Back 👋</h1>
+
+      <p class="subtitle">
+        Login to continue your preparation
+      </p>
+
+      <div class="field">
+        <label>Email Address</label>
+        <input type="email" placeholder="you@example.com">
+      </div>
+
+      <div class="field">
+        <label>Password</label>
+        <input type="password" placeholder="Enter password">
+      </div>
+
+      <div class="row">
+        <label>
+          <input type="checkbox">
+          Remember me
+        </label>
+
+        <div class="forgot">
+          Forgot?
+        </div>
+      </div>
+
+      <button class="login-btn">
+        Login →
+      </button>
+
+      <div class="divider">
+        Or continue with
+      </div>
+
+      <div class="socials">
+
+        <button class="social-btn">
+          Google
+        </button>
+
+        <button class="social-btn">
+          GitHub
+        </button>
+
+      </div>
+
+      <div class="signup">
+        Don't have an account?
+        <span>Sign Up</span>
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- RIGHT -->
+
+  <div class="right-panel">
+
+    <div class="illustration">
+      <img height="500px"src="ChatGPT Image May 13, 2026, 11_50_52 PM.png" alt="">
+    </div>
+
+    <div class="headline">
+      Crack Your Next Interview with
+      <span>AI Power</span>
+    </div>
+
+    <div class="desc">
+      Practice mock interviews, get instant feedback,
+      and improve your confidence with AI coaching.
+    </div>
+
+    <div class="features">
+
+      <div class="feature">
+        <h3>AI Interviews</h3>
+        <p>Real-time practice</p>
+      </div>
+
+      <div class="feature">
+        <h3>Instant Feedback</h3>
+        <p>Smart analysis</p>
+      </div>
+
+      <div class="feature">
+        <h3>Track Progress</h3>
+        <p>Measure growth</p>
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+
+</body>
+</html>
